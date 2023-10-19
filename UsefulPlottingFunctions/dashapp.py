@@ -2,15 +2,15 @@ from dash import Dash
 import dash_bootstrap_components as dbc
 
 
-# ############ CACHING SETUP ############
-# import time
-# import os
-# from uuid import uuid4
+############ CACHING SETUP ############
+import time
+import os
+from uuid import uuid4
 
-# # CACHING
-# from dash import Dash, html, DiskcacheManager, CeleryManager, Input, Output, callback
+# CACHING
+from dash import Dash, html, DiskcacheManager, CeleryManager, Input, Output, callback
 
-# launch_uid = uuid4()
+launch_uid = uuid4()
 
 # if 'REDIS_URL' in os.environ:
 #     # Use Redis & Celery if REDIS_URL set as an env variable
@@ -21,12 +21,12 @@ import dash_bootstrap_components as dbc
 #     )
 
 # else:
-#     # Diskcache for non-production apps when developing locally
-# import diskcache
-# cache = diskcache.Cache("./cache")
-# background_callback_manager = DiskcacheManager(
-#     cache, cache_by=[lambda: launch_uid], expire=60
-# )
+    # Diskcache for non-production apps when developing locally
+import diskcache
+cache = diskcache.Cache("./cache")
+background_callback_manager = DiskcacheManager(
+    cache, cache_by=[lambda: launch_uid], expire=60
+)
 
 # AESTHETICS
 # figure templates
@@ -38,4 +38,4 @@ url_theme1 = dbc.themes.FLATLY
 url_theme2 = dbc.themes.DARKLY
 
 # set up app
-app = Dash(__name__, external_stylesheets=[url_theme1])#, background_callback_manager=background_callback_manager)
+app = Dash(__name__, external_stylesheets=[url_theme1], background_callback_manager=background_callback_manager)
