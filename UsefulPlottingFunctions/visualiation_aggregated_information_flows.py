@@ -49,7 +49,7 @@ agg_flow_layout = html.Div([
                     ),
         html.Br(),
         html.H5('Select a year of interest, moving the slider all the way to the right will select all years between 2013 and 2023.'),
-        dcc.Slider(0, 9, step=1, marks =slider_values, id='slider_agg', value = 9),
+        html.Div([dcc.Slider(0, 9, step=1, marks =slider_values, id='slider_agg', value = 9)], style={'width': '60%'}),
         html.Br(),
         html.H4('Network of aggregated information flows'),
         dcc.Graph(id='updated-network-plot_agg', 
